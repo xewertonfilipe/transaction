@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 
 import {
   createTransaction,
@@ -12,6 +11,8 @@ import {
   selectTransactionTypesError,
   selectTransactionTypesStatus,
 } from "../../features/transactionTypes/transactionTypeSlice";
+import type { RootState } from "../../store";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { Button } from "../Button";
 import { Card, Form, Heading, Input, Label, Select } from "./styles";
 
@@ -21,7 +22,7 @@ export const TransactionForm = () => {
   const [transactionType, setTransactionType] = useState("");
   const [transactionValue, setTransactionValue] = useState("");
 
-  const dispatch = useDispatch<any>();
+  const dispatch = useAppDispatch();
 
   const createTransacion = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
@@ -47,19 +48,20 @@ export const TransactionForm = () => {
       .catch(() => undefined);
   };
 
-  const transactionTypes = useSelector(
-    (state: any) => selectTransactionTypes(state) as TransactionTypeOption[]
+  const transactionTypes = useAppSelector(
+    (state: RootState) =>
+      selectTransactionTypes(state) as TransactionTypeOption[]
   );
-  const transactionTypesStatus = useSelector((state: any) =>
+  const transactionTypesStatus = useAppSelector((state: RootState) =>
     selectTransactionTypesStatus(state)
   );
-  const transactionTypesError = useSelector((state: any) =>
+  const transactionTypesError = useAppSelector((state: RootState) =>
     selectTransactionTypesError(state)
   );
-  const createTransactionStatus = useSelector((state: any) =>
+  const createTransactionStatus = useAppSelector((state: RootState) =>
     selectCreateTransactionStatus(state)
   );
-  const transactionError = useSelector((state: any) =>
+  const transactionError = useAppSelector((state: RootState) =>
     selectTransactionsError(state)
   );
 

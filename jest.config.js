@@ -6,6 +6,7 @@ module.exports = {
   },
   moduleNameMapper: {
     "\\.(css)$": "identity-obj-proxy",
+    "\\.(png|jpg|jpeg|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js",
     "single-spa-react/parcel": "single-spa-react/lib/cjs/parcel.cjs",
   },
   setupFilesAfterEnv: ["@testing-library/jest-dom"],

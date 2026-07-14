@@ -11,7 +11,7 @@ jest.mock("../../http", () => ({
 describe("createTransaction", () => {
   it("maps createdAt from the API response into the internal date field", async () => {
     const createdAt = "2026-07-14T08:47:46.310Z";
-    const mockedHttp = http as { post: jest.Mock };
+    const mockedHttp = http as unknown as { post: jest.Mock };
 
     mockedHttp.post.mockResolvedValue({
       data: {
