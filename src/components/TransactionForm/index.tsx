@@ -15,6 +15,8 @@ import {
 import { Button } from "../Button";
 import { Card, Form, Heading, Input, Label, Select } from "./styles";
 
+const TRANSACTION_CREATED_EVENT = "bank:transaction:created";
+
 export const TransactionForm = () => {
   const [transactionType, setTransactionType] = useState("");
   const [transactionValue, setTransactionValue] = useState("");
@@ -40,6 +42,7 @@ export const TransactionForm = () => {
       .then(() => {
         setTransactionType("");
         setTransactionValue("");
+        document.dispatchEvent(new CustomEvent(TRANSACTION_CREATED_EVENT));
       })
       .catch(() => undefined);
   };
