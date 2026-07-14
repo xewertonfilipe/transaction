@@ -1,0 +1,7 @@
+services:
+  bytebank-transaction:
+    build: .
+    ports:
+      - "8085:80"
+    environment:
+      NODE_ENV: production
