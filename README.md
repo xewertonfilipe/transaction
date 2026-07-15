@@ -51,6 +51,12 @@ docker compose up --build
 
 - Modo local do orchestrator (`isLocal`): consome `http://localhost:9006/bytebank-transaction.js`
 
+## Responsividade
+
+- Layout do formulario ajustado para telas pequenas, tablets e desktop.
+- Breakpoints validados: 320px, 768px e 1024px.
+- Ajustes principais: card com espacamento responsivo, campos com largura fluida e botao sem largura fixa rigida.
+
 ## Scripts uteis
 
 - `npm start`: sobe webpack dev server na porta 9006
