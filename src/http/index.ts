@@ -1,3 +1,4 @@
+import { navigateToUrl } from "single-spa";
 import axios from "axios";
 
 const http = axios.create({
@@ -12,9 +13,11 @@ http.interceptors.request.use(
       config.headers["Authorization"] = `Bearer ${token}`;
     }
 
+    navigateToUrl("/");
     return config;
   },
   function (error) {
+    navigateToUrl("/");
     return Promise.reject(error);
   }
 );
