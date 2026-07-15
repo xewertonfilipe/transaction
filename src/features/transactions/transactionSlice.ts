@@ -79,7 +79,7 @@ const mapResponseToStoredTransaction = (
       typeof typedData.createdAt === "string"
         ? typedData.createdAt
         : typeof typedData.date === "string"
-          ? typedData.date
+        ? typedData.date
         : new Date().toISOString(),
   };
 };
