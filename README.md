@@ -42,10 +42,16 @@ npm run start:standalone
 1. Suba o container:
 
 ```bash
-docker compose up --build
+npm run start:docker
 ```
 
 2. O MFE sera servido em `http://localhost:8085/bytebank-transaction.js`.
+
+Para parar os containers:
+
+```bash
+npm run stop:docker
+```
 
 ## Integracao com o orchestrator
 
@@ -61,6 +67,8 @@ docker compose up --build
 
 - `npm start`: sobe webpack dev server na porta 9006
 - `npm run start:standalone`: executa standalone
+- `npm run start:docker`: sobe container Docker com build
+- `npm run stop:docker`: derruba containers do Docker Compose
 - `npm run build`: build de producao
 - `npm test`: executa testes
 - `npm run coverage`: executa testes com cobertura

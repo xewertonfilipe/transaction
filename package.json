@@ -3,6 +3,8 @@
   "scripts": {
     "start": "webpack serve --port 9006 --env isLocal",
     "start:standalone": "webpack serve --env standalone",
+    "start:docker": "docker compose up --build",
+    "stop:docker": "docker compose down",
     "build": "concurrently npm:build:*",
     "build:webpack": "webpack --mode=production",
     "analyze": "webpack --mode=production --env analyze",
