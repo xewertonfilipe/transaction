@@ -21,6 +21,14 @@ Microfrontend responsavel pela criacao de novas transacoes no shell do Bytebank.
 npm install
 ```
 
+## Deploy no Vercel
+
+- Build Command: `npm run build:webpack`
+- Output Directory: `dist`
+
+Configure `VITE_API_BASE_URL` no projeto da Vercel para Development/Preview/Production.
+Sem essa variavel em producao, o MFE usa URL relativa da mesma origem.
+
 ## Configuracao da API (Vercel)
 
 Defina `VITE_API_BASE_URL` para apontar para a API correta em cada ambiente.
