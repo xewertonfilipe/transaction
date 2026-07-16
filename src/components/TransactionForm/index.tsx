@@ -5,8 +5,8 @@ import {
   selectCreateTransactionStatus,
   selectTransactionsError,
 } from "../../features/transactions/transactionSlice";
-import type { TransactionTypeOption } from "../../features/transactionTypes/transactionTypeSlice";
 import {
+  type TransactionTypeOption,
   selectTransactionTypes,
   selectTransactionTypesError,
   selectTransactionTypesStatus,
@@ -33,7 +33,7 @@ export const TransactionForm = () => {
       return;
     }
 
-    void dispatch(
+    dispatch(
       createTransaction({
         value: parsedValue,
         type: transactionType,
@@ -104,7 +104,10 @@ export const TransactionForm = () => {
             required
           />
         </div>
-        <Button disabled={createTransactionStatus === "loading"}>
+        <Button
+          loading={createTransactionStatus === "loading"}
+          disabled={createTransactionStatus === "loading"}
+        >
           {createTransactionStatus === "loading"
             ? "Concluindo transacao..."
             : "Concluir transacao"}

@@ -95,7 +95,7 @@ describe("transactionTypes reducer and selectors", () => {
     const state = {
       transactionTypes: {
         types: [{ value: "saque", display: "Saque" }],
-        status: "succeeded",
+        status: "succeeded" as const,
         error: null,
       },
     };

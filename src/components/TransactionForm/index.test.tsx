@@ -70,7 +70,7 @@ describe("TransactionForm", () => {
     const dispatchEventSpy = jest.spyOn(document, "dispatchEvent");
 
     mockDispatch.mockReturnValue({ unwrap });
-    (createTransaction as unknown as jest.Mock).mockReturnValue(fakeAction);
+    (createTransaction as any).mockReturnValue(fakeAction);
 
     const { getByRole } = render(<TransactionForm />);
     const select = getByRole("combobox") as HTMLSelectElement;
@@ -117,5 +117,8 @@ describe("TransactionForm", () => {
     expect(select).toBeDisabled();
     expect(input).toBeDisabled();
     expect(button).toBeDisabled();
+    expect(
+      document.querySelector('[data-testid="button-loading-spinner"]')
+    ).toBeInTheDocument();
   });
 });

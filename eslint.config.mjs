@@ -15,6 +15,9 @@ const compat = new FlatCompat({
 
 export default defineConfig([
   {
+    ignores: ["dist/**", "node_modules/**", "**/coverage/**"],
+  },
+  {
     extends: compat.extends(
       "react-important-stuff",
       "plugin:prettier/recommended"
@@ -22,6 +25,11 @@ export default defineConfig([
     languageOptions: {
       parser: babelParser,
     },
-    ignores: ["dist/**", "node_modules/**", "**/coverage/**"],
+  },
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    rules: {
+      "no-undef": "off",
+    },
   },
 ]);

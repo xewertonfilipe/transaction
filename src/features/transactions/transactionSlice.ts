@@ -1,8 +1,8 @@
-import type { PayloadAction } from "@reduxjs/toolkit";
 import {
   createAsyncThunk,
   createSelector,
   createSlice,
+  type PayloadAction,
 } from "@reduxjs/toolkit";
 
 import http from "../../http";

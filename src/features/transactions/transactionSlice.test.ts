@@ -123,8 +123,8 @@ describe("transactions reducer and selectors", () => {
             date: "2026-07-14T09:47:46.310Z",
           },
         ],
-        status: "idle",
-        createStatus: "idle",
+        status: "idle" as const,
+        createStatus: "idle" as const,
         error: null,
       },
     };
