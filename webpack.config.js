@@ -1,5 +1,6 @@
 const { merge } = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa-react");
+const webpack = require("webpack");
 
 module.exports = (webpackConfigEnv, argv) => {
   const defaultConfig = singleSpaDefaults({
@@ -11,6 +12,13 @@ module.exports = (webpackConfigEnv, argv) => {
   });
 
   return merge(defaultConfig, {
+    plugins: [
+      new webpack.DefinePlugin({
+        "process.env.VITE_API_BASE_URL": JSON.stringify(
+          process.env.VITE_API_BASE_URL || "http://localhost:3000"
+        ),
+      }),
+    ],
     externals: [
       "react",
       "react-dom",

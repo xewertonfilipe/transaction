@@ -21,6 +21,21 @@ Microfrontend responsavel pela criacao de novas transacoes no shell do Bytebank.
 npm install
 ```
 
+## Configuracao da API (Vercel)
+
+Defina `VITE_API_BASE_URL` para apontar para a API correta em cada ambiente.
+
+- Desenvolvimento: `http://localhost:3000`
+- Preview/Producao: URL publica da API na Vercel
+
+Exemplo (`.env.local`):
+
+```env
+VITE_API_BASE_URL=http://localhost:3000
+```
+
+Para detalhes de CORS, endpoints e checklist de validacao, consulte [docs/frontend-integration.md](docs/frontend-integration.md).
+
 ## Executando em desenvolvimento (npm)
 
 1. Inicie o servidor de desenvolvimento:

@@ -1,13 +1,17 @@
-import { navigateToUrl } from "single-spa";
 import axios from "axios";
 
+const API_BASE_URL = process.env.VITE_API_BASE_URL || "http://localhost:3000";
+
 const http = axios.create({
-  baseURL: "http://localhost:3000/",
+  baseURL: `${API_BASE_URL.replace(/\/$/, "")}/`,
 });
 
 http.interceptors.request.use(
   function (config) {
-    const token = sessionStorage.getItem("token");
+    const token =
+      sessionStorage.getItem("accessToken") ?? sessionStorage.getItem("token");
+
+    config.headers = config.headers ?? {};
 
     if (token) {
       config.headers["Authorization"] = `Bearer ${token}`;
