@@ -5,7 +5,7 @@ import patternImg from "../../assets/imgs/pattern.png";
 export const Card = styled.div`
   background-color: #cbcbcb;
   border-radius: 8px;
-  min-height: clamp(300px, 48vw, 400px);
+  min-height: clamp(300px, 48vw, 360px);
   width: 100%;
   background-image: url(${patternImg});
   background-repeat: no-repeat;
